@@ -21,7 +21,9 @@ repositories {
 val openrewriteVersion = "8.23.3"
 
 dependencies {
-    implementation("org.openrewrite:rewrite-core:$openrewriteVersion")
+    implementation("org.openrewrite:rewrite-bom:$openrewriteVersion")
+    implementation("org.openrewrite:rewrite-core")
+    implementation("org.openrewrite:rewrite-java")
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.assertj:assertj-core:3.25.2")

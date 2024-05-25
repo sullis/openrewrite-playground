@@ -18,7 +18,7 @@ repositories {
     mavenCentral()
 }
 
-val openrewriteVersion = "8.24.0"
+val openrewriteVersion = "8.27.1"
 
 dependencies {
     implementation(platform("org.openrewrite:rewrite-bom:$openrewriteVersion"))

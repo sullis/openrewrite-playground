@@ -1,48 +1,52 @@
-
-buildscript {
-    repositories {
-        gradlePluginPortal()
-    }
-}
-
 plugins {
-    java
-    `java-library`
+    id("org.openrewrite.build.recipe-library") version "latest.release"
 }
 
-group = "io.github.sullis"
+group = "io.github.sullis.openrewrite.playground"
 description = "openrewrite-playground"
-version = "0.0.1-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+recipeDependencies {
+    parserClasspath("org.apache.httpcomponents.core5:httpcore5:5.1.+")
+    parserClasspath("org.apache.httpcomponents.client5:httpclient5:5.1.+")
+    parserClasspath("org.apache.commons:commons-collections4:4.4")
 }
 
-val openrewriteVersion = "8.27.1"
-
+val rewriteVersion = rewriteRecipe.rewriteVersion.get()
 dependencies {
-    implementation(platform("org.openrewrite:rewrite-bom:$openrewriteVersion"))
-    implementation("org.openrewrite:rewrite-core")
+    implementation(platform("org.openrewrite:rewrite-bom:$rewriteVersion"))
     implementation("org.openrewrite:rewrite-java")
-    testImplementation(platform("org.junit:junit-bom:5.10.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testImplementation("org.assertj:assertj-core:3.25.3")
+    implementation("org.openrewrite.recipe:rewrite-java-dependencies:$rewriteVersion")
+    implementation("org.openrewrite.recipe:rewrite-static-analysis:$rewriteVersion")
+    implementation("org.openrewrite:rewrite-templating:$rewriteVersion")
+
+    annotationProcessor("org.openrewrite:rewrite-templating:$rewriteVersion")
+    compileOnly("com.google.errorprone:error_prone_core:2.19.1") {
+        exclude("com.google.auto.service", "auto-service-annotations")
+    }
+
+    implementation("commons-io:commons-io:2.+")
+    implementation("org.apache.commons:commons-lang3:3.+")
+    implementation("org.apache.maven.shared:maven-shared-utils:3.+")
+    implementation("org.codehaus.plexus:plexus-utils:3.+")
 
     testImplementation("org.openrewrite:rewrite-java-17")
     testImplementation("org.openrewrite:rewrite-test")
     testImplementation("org.openrewrite:rewrite-maven")
-}
 
-tasks.test {
-    useJUnitPlatform()
-    failFast = true
-    maxParallelForks = 1
-}
+    testImplementation("commons-codec:commons-codec:1.+")
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
-    }
+    testRuntimeOnly("org.apache.httpcomponents:httpclient:4.5.14")
+    testRuntimeOnly("org.apache.httpcomponents.client5:httpclient5:5.2.+")
+
+    testImplementation("commons-collections:commons-collections:3.2.2")
+    testImplementation("org.apache.commons:commons-collections4:4.4")
+
+    testImplementation("org.apache.commons:commons-math:2.2")
+    testImplementation("org.apache.commons:commons-math3:3.+")
+
+    testImplementation("commons-lang:commons-lang:2.6")
+    testImplementation("org.apache.commons:commons-lang3:3.+")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:latest.release")
+
 }

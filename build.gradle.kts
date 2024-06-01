@@ -27,7 +27,7 @@ dependencies {
     implementation("commons-io:commons-io:2.+")
     implementation("org.apache.commons:commons-lang3:3.+")
     implementation("org.apache.maven.shared:maven-shared-utils:3.+")
-    implementation("org.codehaus.plexus:plexus-utils:3.+")
+    implementation("org.codehaus.plexus:plexus-utils:4.+")
 
     testImplementation("org.openrewrite:rewrite-java-17")
     testImplementation("org.openrewrite:rewrite-test")

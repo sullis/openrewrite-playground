@@ -20,7 +20,7 @@ dependencies {
     implementation("org.openrewrite:rewrite-templating:$rewriteVersion")
 
     annotationProcessor("org.openrewrite:rewrite-templating:$rewriteVersion")
-    compileOnly("com.google.errorprone:error_prone_core:2.29.2") {
+    compileOnly("com.google.errorprone:error_prone_core:2.30.0") {
         exclude("com.google.auto.service", "auto-service-annotations")
     }
 

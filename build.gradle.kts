@@ -8,7 +8,7 @@ description = "openrewrite-playground"
 recipeDependencies {
     parserClasspath("org.apache.httpcomponents.core5:httpcore5:5.3.+")
     parserClasspath("org.apache.httpcomponents.client5:httpclient5:5.4.+")
-    parserClasspath("org.apache.commons:commons-collections4:4.4")
+    parserClasspath("org.apache.commons:commons-collections4:4.5.0")
 }
 
 val rewriteVersion = rewriteRecipe.rewriteVersion.get()
@@ -39,7 +39,7 @@ dependencies {
     testRuntimeOnly("org.apache.httpcomponents.client5:httpclient5:5.4.+")
 
     testImplementation("commons-collections:commons-collections:3.2.2")
-    testImplementation("org.apache.commons:commons-collections4:4.4")
+    testImplementation("org.apache.commons:commons-collections4:4.5.0")
 
     testImplementation("org.apache.commons:commons-math:2.2")
     testImplementation("org.apache.commons:commons-math3:3.+")

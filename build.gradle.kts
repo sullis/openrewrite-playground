@@ -6,7 +6,7 @@ group = "io.github.sullis.openrewrite.playground"
 description = "openrewrite-playground"
 
 recipeDependencies {
-    parserClasspath("org.apache.httpcomponents.core5:httpcore5:5.3.+")
+    parserClasspath("org.apache.httpcomponents.core5:httpcore5:5.4.+")
     parserClasspath("org.apache.httpcomponents.client5:httpclient5:5.5.+")
     parserClasspath("org.apache.commons:commons-collections4:4.5.0")
 }

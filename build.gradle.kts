@@ -7,7 +7,7 @@ description = "openrewrite-playground"
 
 recipeDependencies {
     parserClasspath("org.apache.httpcomponents.core5:httpcore5:5.4.+")
-    parserClasspath("org.apache.httpcomponents.client5:httpclient5:5.5.+")
+    parserClasspath("org.apache.httpcomponents.client5:httpclient5:5.6.+")
     parserClasspath("org.apache.commons:commons-collections4:4.5.0")
 }
 
@@ -36,7 +36,7 @@ dependencies {
     testImplementation("commons-codec:commons-codec:1.+")
 
     testRuntimeOnly("org.apache.httpcomponents:httpclient:4.5.14")
-    testRuntimeOnly("org.apache.httpcomponents.client5:httpclient5:5.5.+")
+    testRuntimeOnly("org.apache.httpcomponents.client5:httpclient5:5.6.+")
 
     testImplementation("commons-collections:commons-collections:3.2.2")
     testImplementation("org.apache.commons:commons-collections4:4.5.0")
